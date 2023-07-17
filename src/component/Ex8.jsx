@@ -1,22 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 function Ex8(props) {
 
-    const [login,setLogin] = useState({
-        user:""
-        pass:""
-    }) 
+    const [login, setLogin] = useState({
+        user: "",
+        pass: ""
+    })
 
     // set the value to state
-    
-    const readValue = (event) =>{
-        const {name,value} = event.target
-        console.log (`name = ${name} `+ `,value = ${value}`)
-        setLogin({...login,[name] :value})
+
+    const readValue = (event) => {
+        const { name, value } = event.target
+        //console.log(`name = ${name} ` + `,value = ${value}`)
+        setLogin({ ...login, [name]: value })
     }
 
-    const submitHandler = (event) {
-
+    const submitHandler = (event) => {
+        event.preventDefault() // to avoid page refresh
+        console.log('login data =', login)
     }
     return (
         <div className="container">
@@ -32,13 +33,13 @@ function Ex8(props) {
                         <form autoComplete="off" onSubmit={submitHandler}>
                             <div className="form-group mt-2">
                                 <label htmlFor="user">Username</label>
-                                <input type="text" name="user" value={login.user}  onChange ={readValue}  id="user"
-                                 className="form-control" required />
+                                <input type="text" name="user" value={login.user} onChange={readValue} id="user"
+                                    className="form-control" required />
                             </div>
                             <div className="form-group mt-2">
                                 <label htmlFor="pass">Password</label>
-                                <input type="password" name="pass"  value = {login.pass} onChange= {readValue}
-                                id="pass"  className="form-control" required />
+                                <input type="password" name="pass" value={login.pass} onChange={readValue}
+                                    id="pass" className="form-control" required />
                             </div>
 
 

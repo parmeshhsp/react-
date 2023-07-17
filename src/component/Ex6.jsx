@@ -7,7 +7,7 @@ function Ex6(props) {
     const [log, setLog] = useState([])
 
     const genNum = () => {
-        let random = Math.round(Math.random() * 1000)
+        let random = Math.round(Math.random() * 10000)
         setNum(random)
     }
 

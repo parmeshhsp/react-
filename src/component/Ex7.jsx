@@ -7,7 +7,7 @@ function Ex7(props) {
     const fMobile = useRef()
 
     const submitHandler = (event) => {
-        event.preventDefault()
+        event.preventDefault(); //to prevent page reload
         const data = {
             name: fName.current.value,
             email: fEmail.current.value,
@@ -26,11 +26,12 @@ function Ex7(props) {
             <div className="row">
                 <div className="col-md-6 offset-md-3 ">
                     <div className="card-body">
-                        <form autoComplete="off" onSubmit={submitHandler}>
+                        <form autoComplete="off" onSubmit={submitHandler} >
                             <div className="form-group mt-2">
                                 <label htmlFor="name">Name</label>
                                 <input type="text" name="name" id="name" ref={fName} className="form-control" required />
                             </div>
+                            
                             <div className="form-group mt-2">
                                 <label htmlFor="email">Email</label>
                                 <input type="email" name="mail" id="email" ref={fEmail} className="form-control" required />

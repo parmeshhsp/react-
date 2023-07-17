@@ -33,7 +33,7 @@ function Ex3(props) {
                             }
                         </ul>
                         <hr />
-                      <h4 className='text-info'> {emp.name} and {emp.email}</h4>
+                        <h4 className='text-info'> {emp.name} and {emp.email}</h4>
                     </div>
                 </div>
             </div>
