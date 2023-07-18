@@ -8,7 +8,7 @@ function Comment(props) {
                     <h3 className="text-center" > {props.id} {props.name}</h3>
                 </div>
                 <div className="card-body"></div>
-                <p className="text-secondary text-justify">{props.body}</p>
+                <p className="text-secondary text-center">{props.body}</p>
             </div>
             <div className="card-footer">
                 <p className="text-success float-end"> Post id = {props.postId}</p>

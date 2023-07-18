@@ -18,7 +18,7 @@ function App(props) {
           <h3 className="display-4 text-success">React Hooks</h3>
         </div>
       </div>
-      <Ex9 item itemPerPage={50} />
+      <Ex9 item itemPerPage={12.5} />
 
     </div>
   )

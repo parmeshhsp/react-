@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Comment from "../screen/Comment";
 import ReactPaginate from 'react-paginate'
+
 // will call API
 const URL = 'https://jsonplaceholder.typicode.com'
 // const Ex9 =function(props){}
@@ -36,7 +37,14 @@ function Ex9(props) {
     useEffect(() => {
         getComments() // callback ref method call
         setoffData(comments.slice(start, end))
-    }, [])
+    }, [comments])
+
+    // handler to change page item
+    const handleClick = (e) => {
+        // console.log('item = ', e.selected);
+        let noffset = Number(e.selected * props.itemPerPage) % comments.length;
+        setStart(noffset)
+    }
 
     return (
         <div className="container">
@@ -47,7 +55,7 @@ function Ex9(props) {
             </div>
             <div className="row">
                 {
-                    comments && comments.map((item, index) => {
+                    offData && offData.map((item, index) => {
                         return (
                             <Comment key={index} {...item} />
                         )
@@ -57,6 +65,20 @@ function Ex9(props) {
 
             <div className="row">
                 <div className="col-md-12">
+                    <ReactPaginate
+
+                        pageCount={pCount}
+                        className="pagination"
+                        activeClassName="active"
+                        activeLinkClassName="active"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousClassName="page-item"
+                        previousLinkClassName="page-link"
+                        nextClassName="page-item"
+                        nextLinkClassName="page-link"
+                        onPageChange={handleClick}
+                    />
                 </div>
             </div>
         </div>
